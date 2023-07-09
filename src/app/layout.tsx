@@ -1,5 +1,8 @@
 import './globals.css'
+import 'tailwindcss/tailwind.css'
 import { Inter } from 'next/font/google'
+import Navbar from './navbar/page'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body >
+          <div className='grid grid-rows-1 grid-flow-row gap-4'>
+            <div className='flex justify-center font-raleway text-5xl font-extrabold  mt-10 mb-10 sm:text-4xl'>
+              <Link href="/">Weather App</Link>   
+            </div>
+            <Navbar />
+            {children}
+          </div>
+        </body>
     </html>
   )
 }
